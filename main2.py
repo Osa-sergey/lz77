@@ -1,6 +1,6 @@
 import time
 
-
+''' Сам код алгоритма, отлажен, работает на любых окнах'''
 def encode(s):
     struct = []
     i_prev = 0
@@ -43,13 +43,8 @@ f = open('text.txt', 'r', encoding= "utf-8")
 s = f.read()
 f.close()
 
-s += '\0'
+s += '\0' # для корректного обрабатывания конца файла
 
-start = time.time()*1000.0
 s1 = encode(s)
-middle = time.time()*1000.0
 s2 = decode(s1)
-finish = time.time()*1000.0
-print("инкод " + str(middle-start))
-print("декод " + str(finish-middle))
 print('Fine' if s2 == s else 'Something has gone awry')

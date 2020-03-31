@@ -56,11 +56,11 @@ def decode(name):
 buf_size = 256
 f = open('text.txt', 'r', encoding= "utf-8")
 s = f.read()
-
 f.close()
-s += '\0'
-encode(s, "compressed.bin")
 
+s += '\0'
+
+encode(s, "compressed.bin")
 s2 = decode("compressed.bin")
-print(s2)
+
 print('Fine' if s2 == s else 'Something has gone awry')
